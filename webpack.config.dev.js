@@ -14,10 +14,6 @@ module.exports = {
       'react-hot-loader/patch',
       './client/index.js',
     ],
-    vendor: [
-      'react',
-      'react-dom',
-    ],
   },
 
   output: {
@@ -60,11 +56,6 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-      filename: 'vendor.js',
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         CLIENT: JSON.stringify(true),

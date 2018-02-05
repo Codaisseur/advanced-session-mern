@@ -14,10 +14,6 @@ module.exports = {
     app: [
       './client/index.js',
     ],
-    vendor: [
-      'react',
-      'react-dom',
-    ]
   },
 
   output: {
@@ -63,11 +59,6 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
       }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-      filename: 'vendor.js',
     }),
     new ExtractTextPlugin('app.[chunkhash].css', { allChunks: true }),
     new ManifestPlugin({
