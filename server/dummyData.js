@@ -1,6 +1,21 @@
 import Post from './models/post';
+import Shop from './models/shop';
 
 export default function () {
+  Shop.count().exec((err, count) => {
+    if (count > 0) {
+      return;
+    }
+    Shop.create([
+      new Shop({name: "Tennis ball"}),
+      new Shop({name: "Skateboard"}),
+    ],
+      (error) => {
+        if (!error) {
+          // console.log('ready to go....');
+        }
+      });
+  })
   Post.count().exec((err, count) => {
     if (count > 0) {
       return;
