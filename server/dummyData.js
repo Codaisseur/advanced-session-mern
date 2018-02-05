@@ -7,8 +7,22 @@ export default function () {
       return;
     }
     Shop.create([
-      new Shop({name: "Tennis ball"}),
-      new Shop({name: "Skateboard"}),
+      new Shop({
+        name: {
+          defaultMessage: "Tennis ball",
+          translations: [
+            { language: "fr", message: "balle de tennis" },
+          ]
+        },
+      }),
+      new Shop({
+        name: {
+          defaultMessage: "Skateboard",
+          translations: [
+            { language: "fr", message: "planche à roulette" },
+          ]
+        },
+      }),
     ],
       (error) => {
         if (!error) {
