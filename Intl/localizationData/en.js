@@ -26,6 +26,8 @@ export default {
     	  =0 {does not have any comments}
     	  =1 {has # comment}
     	  other {has # comments}
-    	} as of {date}`,
+      } as of {date}`,
+    productName: "Product name",
+    dateAdded: "Date added",
   },
 };
