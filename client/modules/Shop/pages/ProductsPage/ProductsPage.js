@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import ProductListItem from "../../components/ProductListItem/ProductListItem";
 
 export function ProductsPage(props) {
   return (
     <div>
       <h1>Products</h1>
+      <ProductListItem />
     </div>
   );
 }
