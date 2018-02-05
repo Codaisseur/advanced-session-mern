@@ -6,23 +6,27 @@ import { fetchProducts } from '../../ShopActions';
 
 class ProductsPage extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchProducts());
+    if (!this.props.initialLoadComplete) {
+      this.props.dispatch(fetchProducts());
+    }
   }
 
   render() {
     return (
       <div>
         <h1>Products</h1>
-        {this.props.products.map((p)=>(<ProductListItem key={p._id} {...p}/>))}
+        {this.props.products.map((p) => (<ProductListItem key={p._id} {...p} />))}
       </div>
     );
   }
 }
 
+ProductsPage.need = [() => { return fetchProducts() }]
+
 // Retrieve data from store as props
 function mapStateToProps(state, props) {
   return {
-    products: state.shop.products,
+    ...state.shop
   };
 }
 

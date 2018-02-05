@@ -4,6 +4,7 @@ import { ADD_PRODUCTS } from './ShopActions';
 // Initial State
 const initialState = {
   products: [],
+  initialLoadComplete: false,
 };
 
 const ShopReducer = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const ShopReducer = (state = initialState, action) => {
     case ADD_PRODUCTS:
       return Object.assign({}, state, {
         products: action.products,
+        initialLoadComplete: true,
       })
     default:
       return state;
